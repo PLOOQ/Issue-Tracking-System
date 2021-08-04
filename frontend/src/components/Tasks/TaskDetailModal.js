@@ -72,6 +72,12 @@ const TaskDetailModal = (props) => {
       props.setTasks([...newTasks]);
       props.setModalIsOpen(false);
     });
+    props.setDetailTask({
+      id: "",
+      name: "",
+      label: "",
+      body: "",
+    });
   };
   const customStyles = {
     content: {
