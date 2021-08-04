@@ -1,0 +1,53 @@
+.modal_elements > input,
+textarea,
+select {
+  height: 40px;
+  margin-bottom: 10px;
+  display: block;
+  width: 395px;
+  background-color: rgb(228, 228, 228);
+  border-width: 0;
+  padding-inline-start: 20px;
+  font-size: large;
+}
+
+.modal_body {
+  font-size: large;
+  font: message-box;
+  padding-top: 20px;
+  height: 100px;
+  width: 395px;
+}
+.modal_label {
+  width: 419px;
+}
+
+.btn_cancel {
+  display: block;
+  float: left;
+  background-color: white;
+  border-width: 0;
+  color: red;
+  font-size: large;
+  font-weight: lighter;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.btn_add {
+  display: block;
+  float: right;
+  color: white;
+  background-color: rgb(59, 141, 235);
+  border-width: 0;
+  width: 130px;
+  height: 2.5rem;
+  font-size: large;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.btn_add,
+.btn_cancel:hover {
+  cursor: pointer;
+}
