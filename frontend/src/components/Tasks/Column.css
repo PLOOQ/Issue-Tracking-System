@@ -5,11 +5,14 @@
   float: left;
   margin-inline: 1.6%;
   border-radius: 2%;
-  overflow: auto;
 }
 
 .label {
   padding: 5%;
   font-weight: bold;
   font-size: 1.5rem;
+}
+.column_cards {
+  height: 90%;
+  overflow: auto;
 }
