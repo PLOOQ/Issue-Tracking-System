@@ -61,7 +61,18 @@ const TaskDetailModal = (props) => {
       body: "",
     });
   };
-
+  const deleteTaskDetailHandler = () => {
+    fetch(`http://localhost:8000/tasks/${props.detailTask.id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    }).then(() => {
+      const newTasks = props.tasks.filter(
+        (task) => task.id !== props.detailTask.id
+      );
+      props.setTasks([...newTasks]);
+      props.setModalIsOpen(false);
+    });
+  };
   const customStyles = {
     content: {
       top: "49%",
@@ -118,6 +129,9 @@ const TaskDetailModal = (props) => {
             }}
           >
             Cancel
+          </button>
+          <button className="btn_delete" onClick={deleteTaskDetailHandler}>
+            Delete
           </button>
           <button className="btn_add" onClick={submitUpdateTaskDetailHandler}>
             Update

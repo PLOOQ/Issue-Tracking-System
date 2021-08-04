@@ -34,7 +34,8 @@ select {
   text-align: left;
 }
 
-.btn_add {
+.btn_add,
+.btn_delete {
   display: block;
   float: right;
   color: white;
@@ -47,7 +48,12 @@ select {
   border-radius: 10px;
 }
 
+.btn_delete {
+  background-color: red;
+  margin-right: 2px;
+}
 .btn_add,
-.btn_cancel:hover {
+.btn_cancel,
+.btn_delete:hover {
   cursor: pointer;
 }
