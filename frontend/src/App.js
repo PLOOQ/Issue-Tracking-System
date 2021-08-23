@@ -52,7 +52,6 @@ function App() {
         detailTask={detailTask}
         setDetailTask={setDetailTask}
       />
-      )
     </div>
   );
 }
