@@ -1,8 +1,13 @@
 import "./App.css";
+import axios from 'axios';
 import Container from "./components/Tasks/Container";
 import { useEffect, useState } from "react";
 import Header from "./components/Tasks/Header";
 import TaskDetailModal from "./components/Tasks/TaskDetailModal";
+
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -55,5 +60,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
