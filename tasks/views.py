@@ -8,6 +8,9 @@ from .serializers import TaskSerializer
 
 # Create your views here.
 
+def index(request):
+    return render(request,'index.html')
+
 class TaskList(APIView):
     def get(self, request, format=None):
         tasks = Task.objects.all()
