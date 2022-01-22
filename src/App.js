@@ -15,7 +15,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8000/tasks")
+    fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks")
       .then((resp) => resp.json())
       .then((data) => {
         setTasks(data);
