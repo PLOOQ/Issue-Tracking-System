@@ -40,7 +40,7 @@ const TaskDetailModal = (props) => {
         });
       });
     } else {
-      fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks${props.detailTask.id}`, {
+      fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
         method: "PUT",
         body: data,
         headers: { "Content-Type": "application/json" },
