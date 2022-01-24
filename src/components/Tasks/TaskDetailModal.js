@@ -62,7 +62,7 @@ const TaskDetailModal = (props) => {
     });
   };
   const deleteTaskDetailHandler = () => {
-    fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks${props.detailTask.id}`, {
+    fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     }).then(() => {
