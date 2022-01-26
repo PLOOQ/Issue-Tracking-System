@@ -14,7 +14,7 @@ class Task(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length = 40)
     label = models.CharField(max_length = 40, choices=label_choices)
-    body = models.TextField(max_length = 100)
+    body = models.TextField(max_length = 1000)
     def __str__(self):
             return(f"{self.id}. {self.name} - {self.label}")
     class Meta:
