@@ -4,7 +4,6 @@ from django.shortcuts import render
 from .models import Task
 from rest_framework import status
 from .serializers import TaskSerializer
-
 # Create your views here.
 
 def index(request):
