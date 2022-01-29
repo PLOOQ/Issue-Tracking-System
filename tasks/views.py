@@ -4,11 +4,9 @@ from django.shortcuts import render
 from .models import Task
 from rest_framework import status
 from .serializers import TaskSerializer
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-@login_required
 def index(request):
     return render(request,'index.html')
 
