@@ -17,8 +17,10 @@ from re import template
 from django.contrib import admin
 from django.urls import path, include, re_path 
 from django.views.generic import TemplateView
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("", include('tasks.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
