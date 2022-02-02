@@ -1,7 +1,8 @@
+from django.conf import settings
 from rest_framework import status
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.response import Response
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 def login_view(request):
     username = request.POST['username']
@@ -14,3 +15,8 @@ def login_view(request):
     else:
         # Return an 'invalid login' error message.
         return Response(status=status.HTTP_404_NOT_FOUND)
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
