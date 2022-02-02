@@ -281,3 +281,8 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/node,django,react.env
+
+
+# Other docs
+Architecture.drawio
+Demo.mp4
