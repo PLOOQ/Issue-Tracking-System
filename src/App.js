@@ -10,6 +10,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 
 function App() {
+  const database_path = "http://127.0.0.1:8000/tasks";
   const [tasks, setTasks] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [detailTask, setDetailTask] = useState({
@@ -20,7 +21,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks")
+    fetch(database_path)
       .then((resp) => resp.json())
       .then((data) => {
         setTasks(data);
