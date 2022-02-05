@@ -20,16 +20,18 @@ const TaskDetailModal = (props) => {
   const submitUpdateTaskDetailHandler = () => {
     const data = JSON.stringify({
       id: props.detailTask.id,
+      owner: props.detailTask.owner,
       name: props.detailTask.name,
       label: props.detailTask.label,
       body: props.detailTask.body,
     });
+    console.log(data)
     props.setModalIsOpen(false);
     if (!props.detailTask.id) {
-      fetch("http://127.0.0.1:8000/tasks", {
+      fetch("http://127.0.0.1:8000/tasks/", {
         method: "POST",
         body: data,
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json"},
       }).then((resp) => {
         resp.json().then((data) => {
           const newTasks = props.tasks.filter(
@@ -59,6 +61,7 @@ const TaskDetailModal = (props) => {
       name: "",
       label: "",
       body: "",
+      owner: "",
     });
   };
   const deleteTaskDetailHandler = () => {
@@ -77,6 +80,7 @@ const TaskDetailModal = (props) => {
       name: "",
       label: "",
       body: "",
+      owner: "",
     });
   };
   const customStyles = {

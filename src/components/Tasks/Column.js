@@ -11,7 +11,6 @@ const Column = (props) => {
             key={task.id}
             task={task}
             openModalHandler={props.openModalHandler}
-            setDetailTask={props.setDetailTask}
           ></Card>
         ))}
       </div>

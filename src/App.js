@@ -18,6 +18,7 @@ function App() {
     name: "",
     label: "",
     body: "",
+    owner: "",
   });
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
   const openModalHandler = (task) => {
     if (!task) {
       setDetailTask((prevState) => {
-        return { ...prevState, label: "Backlog" };
+        return { ...prevState, label: "Backlog", owner: "pabloloo1"};
       });
     } else {
       setDetailTask((prevState) => {
@@ -41,6 +42,7 @@ function App() {
           name: task.name,
           label: task.label,
           body: task.body,
+          owner: task.owner,
         };
       });
     }
