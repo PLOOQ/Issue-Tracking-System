@@ -19,17 +19,17 @@ const TaskDetailModal = (props) => {
   };
   const submitUpdateTaskDetailHandler = () => {
     const data = JSON.stringify({
-      id: props.detailTask.id,
       name: props.detailTask.name,
       label: props.detailTask.label,
       body: props.detailTask.body,
     });
+    console.log(data)
     props.setModalIsOpen(false);
     if (!props.detailTask.id) {
-      fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks", {
+      fetch("http://127.0.0.1:8000/tasks/", {
         method: "POST",
         body: data,
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json"},
       }).then((resp) => {
         resp.json().then((data) => {
           const newTasks = props.tasks.filter(
@@ -40,7 +40,7 @@ const TaskDetailModal = (props) => {
         });
       });
     } else {
-      fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
+      fetch(`http://127.0.0.1:8000/tasks/${props.detailTask.id}`, {
         method: "PUT",
         body: data,
         headers: { "Content-Type": "application/json" },
@@ -62,7 +62,7 @@ const TaskDetailModal = (props) => {
     });
   };
   const deleteTaskDetailHandler = () => {
-    fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
+    fetch(`http://127.0.0.1:8000/tasks/${props.detailTask.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     }).then(() => {
