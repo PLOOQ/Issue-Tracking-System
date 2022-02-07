@@ -15,7 +15,7 @@ class Task(models.Model):
     name = models.CharField(max_length = 100)
     label = models.CharField(max_length = 100, choices=label_choices)
     body = models.TextField(max_length = 1000)
-    owner = models.ForeignKey('auth.User', related_name='tasks', on_delete=models.CASCADE) 
+    owner = models.ForeignKey('auth.User', related_name='tasks', on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

@@ -9,33 +9,42 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from tasks.serializers import UserSerializer
 from rest_framework import permissions
-from tasks.permissions import IsOwnerOrReadOnly
+from tasks.permissions import IsOwnerOnly
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+@login_required(login_url='api-auth/login/')
 def index(request):
     return render(request,'index.html')
 
 class TaskList(APIView):
 
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
     def get(self, request, format=None):
-        tasks = Task.objects.all()
+        tasks = Task.objects.filter(owner = request.user)
         serializer = TaskSerializer(tasks,many=True)
         return Response(serializer.data)
     
     def post(self, request, format=None):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid(): 
-            serializer.save()
+            serializer.save(owner=self.request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     
     
 class TaskDetail(APIView):
+
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, task_id):
         try:
@@ -61,7 +70,7 @@ class TaskDetail(APIView):
         task = self.get_object(task_id)
         task.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
+
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()

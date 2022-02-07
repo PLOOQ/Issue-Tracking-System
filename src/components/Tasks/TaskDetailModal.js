@@ -19,8 +19,6 @@ const TaskDetailModal = (props) => {
   };
   const submitUpdateTaskDetailHandler = () => {
     const data = JSON.stringify({
-      id: props.detailTask.id,
-      owner: props.detailTask.owner,
       name: props.detailTask.name,
       label: props.detailTask.label,
       body: props.detailTask.body,
@@ -61,7 +59,6 @@ const TaskDetailModal = (props) => {
       name: "",
       label: "",
       body: "",
-      owner: "",
     });
   };
   const deleteTaskDetailHandler = () => {
@@ -80,7 +77,6 @@ const TaskDetailModal = (props) => {
       name: "",
       label: "",
       body: "",
-      owner: "",
     });
   };
   const customStyles = {
