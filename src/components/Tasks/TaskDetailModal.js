@@ -23,13 +23,15 @@ const TaskDetailModal = (props) => {
       label: props.detailTask.label,
       body: props.detailTask.body,
     });
-    console.log(data)
     props.setModalIsOpen(false);
     if (!props.detailTask.id) {
       fetch("http://127.0.0.1:8000/tasks/", {
         method: "POST",
         body: data,
-        headers: { "Content-Type": "application/json"},
+        headers: {
+           "Content-Type": "application/json",
+           "Authorization": `Token ${props.token}`
+          },
       }).then((resp) => {
         resp.json().then((data) => {
           const newTasks = props.tasks.filter(
@@ -43,7 +45,10 @@ const TaskDetailModal = (props) => {
       fetch(`http://127.0.0.1:8000/tasks/${props.detailTask.id}`, {
         method: "PUT",
         body: data,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Token ${props.token}`
+         },
       }).then((resp) => {
         resp.json().then((data) => {
           const newTasks = props.tasks.filter(
@@ -64,7 +69,10 @@ const TaskDetailModal = (props) => {
   const deleteTaskDetailHandler = () => {
     fetch(`http://127.0.0.1:8000/tasks/${props.detailTask.id}`, {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${props.token}`
+       },
     }).then(() => {
       const newTasks = props.tasks.filter(
         (task) => task.id !== props.detailTask.id
