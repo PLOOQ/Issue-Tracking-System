@@ -1,0 +1,12 @@
+.auth_background
+{
+    background-color: #282c34;
+    min-height: 100vh;
+    padding-top: 25vh;
+}
+
+
+.buttons_wrapper
+{
+    margin-top: 10px;
+}

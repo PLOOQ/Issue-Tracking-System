@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from 'axios';
 import { useState } from "react";
-import Login from "./components/Login/Login";
+import Auth from "./components/Auth/Auth";
 import Dashboard from "./components/Dashboard/Dashboard";
 
 axios.defaults.xsrfCookieName = 'csrftoken'
@@ -22,7 +22,7 @@ function App() {
   {
     return (
       <div>
-        <Login 
+        <Auth 
         loginHandler={loginHandler}
         />
       </div>

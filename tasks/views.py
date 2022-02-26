@@ -12,6 +12,7 @@ from rest_framework import permissions
 from tasks.permissions import IsOwnerOnly
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 
@@ -75,6 +76,16 @@ class TaskDetail(APIView):
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def post(self,request, format=None):
+        username = request.data['username']
+        password = request.data['password']
+        user = User.objects.create_user(username=username,password=password)
+        user.save()
+        return Response(status=status.HTTP_201_CREATED)
+        
+
+
 
 
 class UserDetail(generics.RetrieveAPIView):
