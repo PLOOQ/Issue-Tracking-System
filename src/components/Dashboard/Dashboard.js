@@ -5,6 +5,7 @@ import TaskDetailModal from "../../components/Tasks/TaskDetailModal"
 import { useEffect, useState } from "react";
 
 function Dashboard (props) {
+    const token = sessionStorage.getItem('token')
     const database_path = "http://127.0.0.1:8000/tasks";
     const [tasks, setTasks] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -13,8 +14,8 @@ function Dashboard (props) {
         name: "",
         label: "",
         body: "",
-        });
-        
+    });
+    
     const openModalHandler = (task) => {
         if (!task) {
         setDetailTask((prevState) => {
@@ -36,7 +37,7 @@ function Dashboard (props) {
         const fetchData = () =>
     {
         fetch(database_path,{
-        headers: { "Authorization": `Token ${props.token}`},
+        headers: { "Authorization": `Token ${token}`},
         })
         .then((resp) => resp.json())
         .then((data) => {
@@ -55,7 +56,7 @@ function Dashboard (props) {
         <Header openModalHandler={openModalHandler} />
         <Container tasks={tasks} openModalHandler={openModalHandler}/>
         <TaskDetailModal
-          token = {props.token}
+          token = {token}
           tasks={tasks}
           setTasks={setTasks}
           modalIsOpen={modalIsOpen}

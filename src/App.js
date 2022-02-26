@@ -1,6 +1,5 @@
 import "./App.css";
 import axios from 'axios';
-import { useState } from "react";
 import Auth from "./components/Auth/Auth";
 import Dashboard from "./components/Dashboard/Dashboard";
 
@@ -10,15 +9,12 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 function App() {
 
-  const [token, setToken] = useState('');
-  const [isToken, setIsToken] = useState(false);
-  
+  const token=sessionStorage.getItem('token');
   const loginHandler = (token) =>{
-    setToken(token);
-    setIsToken(true);
+    sessionStorage.setItem('token',token);
   }
 
-  if (!isToken)
+  if (token)
   {
     return (
       <div>
@@ -28,7 +24,7 @@ function App() {
       </div>
     )
   }
-  else if (isToken)
+  else if (!token)
   {
     return (
       <div className="App">
