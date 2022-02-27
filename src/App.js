@@ -10,7 +10,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 function App() {
 
-  const [token, setToken] = useState('');
+  const token = sessionStorage.setItem('')
   const [isToken, setIsToken] = useState(false);
   
   const loginHandler = (token) =>{
