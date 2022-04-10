@@ -43,7 +43,7 @@ function Login(props)
                                 }
                             )
                             event.preventDefault();
-                            fetch('http://127.0.0.1:8000/api-token-auth/',{
+                            fetch('https://mighty-issue-tracking-system.herokuapp.com/api-token-auth/',{
                                 method:'POST',
                                 body:data,
                                 headers: { "Content-Type": "application/json"},

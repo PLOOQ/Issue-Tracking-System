@@ -5,7 +5,6 @@ import TaskDetailModal from "../../components/Tasks/TaskDetailModal"
 import { useEffect, useState } from "react";
 
 function Dashboard (props) {
-    const database_path = "http://127.0.0.1:8000/tasks";
     const [tasks, setTasks] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [detailTask, setDetailTask] = useState({
@@ -35,7 +34,7 @@ function Dashboard (props) {
     };
         const fetchData = () =>
     {
-        fetch(database_path,{
+        fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks",{
         headers: { "Authorization": `Token ${props.token}`},
         })
         .then((resp) => resp.json())

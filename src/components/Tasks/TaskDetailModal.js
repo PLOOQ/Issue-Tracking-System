@@ -24,8 +24,9 @@ const TaskDetailModal = (props) => {
       body: props.detailTask.body,
     });
     props.setModalIsOpen(false);
+    console.log(data);
     if (!props.detailTask.id) {
-      fetch("http://127.0.0.1:8000/tasks/", {
+      fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks", {
         method: "POST",
         body: data,
         headers: {
@@ -42,7 +43,7 @@ const TaskDetailModal = (props) => {
         });
       });
     } else {
-      fetch(`http://127.0.0.1:8000/tasks/${props.detailTask.id}`, {
+      fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
         method: "PUT",
         body: data,
         headers: {
@@ -67,7 +68,7 @@ const TaskDetailModal = (props) => {
     });
   };
   const deleteTaskDetailHandler = () => {
-    fetch(`http://127.0.0.1:8000/tasks/${props.detailTask.id}`, {
+    fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
