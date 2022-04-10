@@ -30,7 +30,7 @@ function Signup(props)
             }
             else if (password === passwordConfirm)
             {
-                fetch('http://127.0.0.1:8000/users/',
+                fetch('https://mighty-issue-tracking-system.herokuapp.com/users/',
                 {
                     method:"POST",
                     body:data,
