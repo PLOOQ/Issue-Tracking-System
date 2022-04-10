@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import Task
 from rest_framework import status
 from .serializers import TaskSerializer
+<<<<<<< HEAD
 from django.http import Http404
 from django.contrib.auth.models import User
 from rest_framework import generics
@@ -14,6 +15,8 @@ from rest_framework.authentication import SessionAuthentication, TokenAuthentica
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 
+=======
+>>>>>>> master
 # Create your views here.
 
 @login_required(login_url='api-auth/login/')
