@@ -1,0 +1,11 @@
+.navbar
+{
+    height: 2em;
+    padding-top: 20px;
+    padding-inline: 100px;
+}
+
+.logout_button_div
+{
+    float:right;
+}
