@@ -16,7 +16,6 @@ from django.core.exceptions import ValidationError
 
 # Create your views here.
 
-@login_required(login_url='api-auth/login/')
 def index(request):
     return render(request,'index.html')
 
