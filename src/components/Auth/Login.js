@@ -53,6 +53,7 @@ function Login(props)
                             .then(data => {
                                 if('token' in data)
                                 {
+                                    console.log(data.token); 
                                     props.loginHandler(data.token);
                                 }
                             })
