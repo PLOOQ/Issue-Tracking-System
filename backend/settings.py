@@ -72,8 +72,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://mighty-issue-tracking-system.herokuapp.com"
 ]
 
-CORS_ORIGIN_WHITELIST = ("https://mighty-issue-tracking-system.herokuapp.com")
-
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
