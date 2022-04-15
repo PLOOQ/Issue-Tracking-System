@@ -47,7 +47,9 @@ function Login(props)
                             fetch('https://mighty-issue-tracking-system.herokuapp.com/api-token-auth/',{
                                 method:'POST',
                                 body:data,
-                                headers: { "Content-Type": "application/json"},
+                                headers: { 
+                                    "Content-Type": "application/json",
+                                },
                             })
                             .then((response) => response.json()
                             )
