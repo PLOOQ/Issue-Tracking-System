@@ -43,9 +43,7 @@ function Login(props)
                                 }
                             )
                             event.preventDefault();
-                            console.log(data);
                             fetch('https://mighty-issue-tracking-system.herokuapp.com/api-token-auth/',{
-                                credentials: 'include',
                                 method:'POST',
                                 body:data,
                                 headers: { 
