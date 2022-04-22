@@ -34,7 +34,6 @@ function Dashboard (props) {
     };
         const fetchData = () =>
     {
-        console.log(props.token);
         fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks/",{
         method:"GET",
         headers: { 
