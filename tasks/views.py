@@ -22,7 +22,7 @@ def index(request):
 class TaskList(APIView):
 
     authentication_classes = [TokenAuthentication]
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, format=None):
         tasks = Task.objects.filter(owner = request.user)
@@ -44,7 +44,7 @@ class TaskList(APIView):
 class TaskDetail(APIView):
 
     authentication_classes = [TokenAuthentication]
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, task_id):
         try:
