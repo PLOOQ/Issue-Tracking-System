@@ -24,14 +24,13 @@ const TaskDetailModal = (props) => {
       body: props.detailTask.body,
     });
     props.setModalIsOpen(false);
-    console.log(data);
     if (!props.detailTask.id) {
-      fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks", {
+      fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks/", {
         method: "POST",
         body: data,
         headers: {
-           "Content-Type": "application/json",
-           "Authorization": `Token ${props.token}`
+           "Content-Type":"application/json",
+           "Authorization":`Token ${props.token}`
           },
       }).then((resp) => {
         resp.json().then((data) => {
