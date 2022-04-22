@@ -34,8 +34,12 @@ function Dashboard (props) {
     };
         const fetchData = () =>
     {
-        fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks",{
-        headers: { "Authorization": `Token ${props.token}`},
+        console.log(props.token);
+        fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks/",{
+        method:"GET",
+        headers: { 
+            'Authorization': `Token ${props.token}`
+        },
         })
         .then((resp) => resp.json())
         .then((data) => {
