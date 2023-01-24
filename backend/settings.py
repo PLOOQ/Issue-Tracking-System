@@ -32,6 +32,7 @@ DEBUG = os.environ.get('DEBUG_VALUE')
 ALLOWED_HOSTS = [
     'mighty-issue-tracking-system.herokuapp.com',
     '127.0.0.1:8000',
+    '127.0.0.1:8080',
     'localhost',
     ]
 
@@ -69,6 +70,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:3000",
+    "http://127.0.0.1:3001",
+    "http://localhost:3001",
     "https://mighty-issue-tracking-system.herokuapp.com"
 ]
 

@@ -32,9 +32,10 @@ function Dashboard (props) {
         }
         setModalIsOpen(true);
     };
-        const fetchData = () =>
+
+        const fetchData =  () =>
     {
-        fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks/",{
+         fetch("http://localhost:8080/tasks/",{
         method:"GET",
         headers: { 
             'Authorization': `Token ${props.token}`
@@ -48,9 +49,9 @@ function Dashboard (props) {
             }
         });
     }
-    useEffect(() => {
+    useEffect( () => {
         fetchData();
-    });
+    },[]);
 
   return(
     <div>

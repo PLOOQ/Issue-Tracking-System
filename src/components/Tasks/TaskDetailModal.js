@@ -1,3 +1,4 @@
+import { toBeEnabled } from "@testing-library/jest-dom/dist/matchers";
 import Modal from "react-modal";
 import "./TaskDetailModal.css";
 
@@ -25,7 +26,7 @@ const TaskDetailModal = (props) => {
     });
     props.setModalIsOpen(false);
     if (!props.detailTask.id) {
-      fetch("https://mighty-issue-tracking-system.herokuapp.com/tasks/", {
+      fetch("http://localhost:8080/tasks/", {
         method: "POST",
         body: data,
         headers: {
@@ -42,7 +43,7 @@ const TaskDetailModal = (props) => {
         });
       });
     } else {
-      fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
+      fetch(`http://localhost:8080/tasks/${props.detailTask.id}`, {
         method: "PUT",
         body: data,
         headers: {
@@ -67,7 +68,7 @@ const TaskDetailModal = (props) => {
     });
   };
   const deleteTaskDetailHandler = () => {
-    fetch(`https://mighty-issue-tracking-system.herokuapp.com/tasks/${props.detailTask.id}`, {
+    fetch(`http://localhost:8080/tasks/${props.detailTask.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -157,3 +158,8 @@ const TaskDetailModal = (props) => {
 };
 
 export default TaskDetailModal;
+
+
+
+
+

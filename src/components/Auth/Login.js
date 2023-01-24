@@ -43,15 +43,14 @@ function Login(props)
                                 }
                             )
                             event.preventDefault();
-                            fetch('https://mighty-issue-tracking-system.herokuapp.com/api-token-auth/',{
+                            fetch('http://localhost:8080/api-token-auth/',{
                                 method:'POST',
                                 body:data,
                                 headers: { 
                                     "Content-Type":"application/json",
                                 },
                             })
-                            .then((response) => response.json()
-                            )
+                            .then((response) =>response.json())
                             .then(data => {
                                 if('token' in data)
                                 {
